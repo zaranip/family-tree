@@ -161,21 +161,21 @@ export function AddRelationshipForm({
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
       {/* Context */}
-      <div className="bg-gray-50 rounded-lg p-4">
-        <p className="text-gray-600">
+      <div className="bg-[rgb(var(--color-bg-elevated))] rounded-lg p-4">
+        <p className="text-[rgb(var(--color-text-muted))]">
           Adding a <strong>{getCategoryLabel()}</strong> for <strong>{person1Name}</strong>
         </p>
       </div>
 
       {/* Person Search */}
       <div>
-        <label className="block text-base font-medium text-gray-700 mb-2">
+        <label className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2">
           Select Person <span className="text-red-500">*</span>
         </label>
         
         {/* Search Input */}
         <div className="relative mb-4">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[rgb(var(--color-text-muted))]" />
           <Input
             placeholder="Search by name..."
             value={searchQuery}
@@ -185,19 +185,19 @@ export function AddRelationshipForm({
         </div>
 
         {/* Person List */}
-        <div className="border border-gray-200 rounded-lg max-h-60 overflow-y-auto">
+        <div className="border border-[rgb(var(--color-border))] rounded-lg max-h-60 overflow-y-auto">
           {availablePeople.length === 0 ? (
-            <p className="p-4 text-center text-gray-500">
+            <p className="p-4 text-center text-[rgb(var(--color-text-muted))]">
               {searchQuery ? 'No matching people found' : 'No other people available'}
             </p>
           ) : (
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-[rgb(var(--color-border))]">
               {availablePeople.map((person) => (
                 <button
                   key={person.id}
                   type="button"
                   onClick={() => setValue('person2_id', person.id)}
-                  className={`w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 transition-colors
+                  className={`w-full flex items-center gap-3 p-3 text-left hover:bg-[rgb(var(--color-bg-elevated))] transition-colors
                     ${selectedPersonId === person.id ? 'bg-primary-50 border-l-4 border-primary-500' : ''}`}
                 >
                   <Avatar
@@ -206,11 +206,11 @@ export function AddRelationshipForm({
                     size="sm"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-gray-900 truncate">
+                    <p className="font-medium text-[rgb(var(--color-text-main))] truncate">
                       {person.first_name} {person.last_name}
                     </p>
                     {person.nickname && (
-                      <p className="text-sm text-gray-500">"{person.nickname}"</p>
+                      <p className="text-sm text-[rgb(var(--color-text-muted))]">"{person.nickname}"</p>
                     )}
                   </div>
                 </button>
@@ -277,7 +277,7 @@ export function AddRelationshipForm({
       )}
 
       {/* Actions */}
-      <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 border-t border-gray-200">
+      <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4 border-t border-[rgb(var(--color-border))]">
         <Button
           type="button"
           variant="secondary"

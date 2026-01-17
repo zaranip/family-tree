@@ -131,7 +131,7 @@ export function PersonProfile() {
         {/* Back Button */}
         <Link
           to="/people"
-          className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
+          className="inline-flex items-center gap-2 text-[rgb(var(--color-text-muted))] hover:text-[rgb(var(--color-text-main))] mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to People
@@ -154,12 +154,12 @@ export function PersonProfile() {
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">{displayName}</h1>
+                  <h1 className="text-3xl font-bold text-[rgb(var(--color-text-main))]">{displayName}</h1>
                   {person.maiden_name && (
-                    <p className="text-lg text-gray-500">née {person.maiden_name}</p>
+                    <p className="text-lg text-[rgb(var(--color-text-muted))]">née {person.maiden_name}</p>
                   )}
                   {!person.is_living && (
-                    <span className="inline-flex items-center gap-1 mt-2 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
+                    <span className="inline-flex items-center gap-1 mt-2 px-3 py-1 rounded-full text-sm font-medium bg-[rgb(var(--color-bg-elevated))] text-[rgb(var(--color-text-muted))]">
                       <Heart className="w-4 h-4" />
                       In Memoriam
                     </span>
@@ -186,8 +186,8 @@ export function PersonProfile() {
 
               {/* Details Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 text-gray-600">
-                  <Calendar className="w-5 h-5 text-gray-400" />
+                <div className="flex items-center gap-3 text-[rgb(var(--color-text-muted))]">
+                  <Calendar className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
                   <div>
                     <p className="font-medium">Born {formatDate(person.birthday)}</p>
                     <p className="text-sm">
@@ -200,8 +200,8 @@ export function PersonProfile() {
                 </div>
 
                 {person.birth_place && (
-                  <div className="flex items-center gap-3 text-gray-600">
-                    <MapPin className="w-5 h-5 text-gray-400" />
+                  <div className="flex items-center gap-3 text-[rgb(var(--color-text-muted))]">
+                    <MapPin className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
                     <div>
                       <p className="font-medium">Birth Place</p>
                       <p className="text-sm">{person.birth_place}</p>
@@ -210,8 +210,8 @@ export function PersonProfile() {
                 )}
 
                 {person.occupation && (
-                  <div className="flex items-center gap-3 text-gray-600">
-                    <Briefcase className="w-5 h-5 text-gray-400" />
+                  <div className="flex items-center gap-3 text-[rgb(var(--color-text-muted))]">
+                    <Briefcase className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
                     <div>
                       <p className="font-medium">Occupation</p>
                       <p className="text-sm">{person.occupation}</p>
@@ -220,8 +220,8 @@ export function PersonProfile() {
                 )}
 
                 {person.email && (
-                  <div className="flex items-center gap-3 text-gray-600">
-                    <Mail className="w-5 h-5 text-gray-400" />
+                  <div className="flex items-center gap-3 text-[rgb(var(--color-text-muted))]">
+                    <Mail className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
                     <div>
                       <p className="font-medium">Email</p>
                       <a href={`mailto:${person.email}`} className="text-sm link">
@@ -232,8 +232,8 @@ export function PersonProfile() {
                 )}
 
                 {person.phone && (
-                  <div className="flex items-center gap-3 text-gray-600">
-                    <Phone className="w-5 h-5 text-gray-400" />
+                  <div className="flex items-center gap-3 text-[rgb(var(--color-text-muted))]">
+                    <Phone className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
                     <div>
                       <p className="font-medium">Phone</p>
                       <a href={`tel:${person.phone}`} className="text-sm link">
@@ -246,9 +246,9 @@ export function PersonProfile() {
 
               {/* Bio */}
               {person.bio && (
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h3 className="font-semibold text-gray-900 mb-2">About</h3>
-                  <p className="text-gray-600 whitespace-pre-wrap">{person.bio}</p>
+                <div className="mt-6 pt-6 border-t border-[rgb(var(--color-border))]">
+                  <h3 className="font-semibold text-[rgb(var(--color-text-main))] mb-2">About</h3>
+                  <p className="text-[rgb(var(--color-text-muted))] whitespace-pre-wrap">{person.bio}</p>
                 </div>
               )}
             </div>
@@ -269,7 +269,7 @@ export function PersonProfile() {
             }
           >
             {groupedRelationships.parents.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">No parents added</p>
+              <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No parents added</p>
             ) : (
               <div className="space-y-3">
                 {groupedRelationships.parents.map((rel) => (
@@ -300,7 +300,7 @@ export function PersonProfile() {
             }
           >
             {groupedRelationships.spouses.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">No spouses or partners added</p>
+              <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No spouses or partners added</p>
             ) : (
               <div className="space-y-3">
                 {groupedRelationships.spouses.map((rel) => (
@@ -335,7 +335,7 @@ export function PersonProfile() {
             }
           >
             {groupedRelationships.siblings.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">No siblings added</p>
+              <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No siblings added</p>
             ) : (
               <div className="space-y-3">
                 {groupedRelationships.siblings.map((rel) => (
@@ -366,7 +366,7 @@ export function PersonProfile() {
             }
           >
             {groupedRelationships.children.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">No children added</p>
+              <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No children added</p>
             ) : (
               <div className="space-y-3">
                 {groupedRelationships.children.map((rel) => (
@@ -394,25 +394,25 @@ export function PersonProfile() {
               subtitle="Most recent edits to this profile"
             >
               {historyQuery.isLoading ? (
-                <p className="text-gray-500 text-center py-4">Loading history...</p>
+                <p className="text-[rgb(var(--color-text-muted))] text-center py-4">Loading history...</p>
               ) : historyQuery.error ? (
-                <p className="text-gray-500 text-center py-4">Unable to load history.</p>
+                <p className="text-[rgb(var(--color-text-muted))] text-center py-4">Unable to load history.</p>
               ) : !historyQuery.data || historyQuery.data.length === 0 ? (
-                <p className="text-gray-500 text-center py-4">No changes recorded yet.</p>
+                <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No changes recorded yet.</p>
               ) : (
                 <div className="space-y-3">
                   {historyQuery.data.slice(0, 10).map((entry) => (
                     <div
                       key={entry.id}
-                      className="flex items-start justify-between gap-4 rounded-lg border border-gray-200 bg-white px-4 py-3"
+                      className="flex items-start justify-between gap-4 rounded-lg border border-[rgb(var(--color-border))] bg-[rgb(var(--color-bg-card))] px-4 py-3"
                     >
                       <div>
-                        <p className="font-medium text-gray-900">Profile updated</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="font-medium text-[rgb(var(--color-text-main))]">Profile updated</p>
+                        <p className="text-sm text-[rgb(var(--color-text-muted))]">
                           {format(parseISO(entry.changed_at), 'MMM d, yyyy h:mm a')}
                         </p>
                       </div>
-                      <div className="text-sm text-gray-500">{entry.changed_by_user_id ? 'User' : 'System'}</div>
+                      <div className="text-sm text-[rgb(var(--color-text-muted))]">{entry.changed_by_user_id ? 'User' : 'System'}</div>
                     </div>
                   ))}
                 </div>

@@ -92,7 +92,7 @@ export function AddRelationship() {
           ]}
         />
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 md:p-8">
+        <div className="bg-[rgb(var(--color-bg-card))] rounded-xl shadow-sm border border-[rgb(var(--color-border))] p-6 md:p-8">
           <AddRelationshipForm
             person1Id={person.id}
             person1Name={personName}

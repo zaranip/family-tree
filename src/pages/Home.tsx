@@ -25,11 +25,11 @@ export function Home() {
       {isLoading && <LoadingOverlay message="Loading family tree..." />}
       
       {/* Toolbar */}
-      <div className="bg-white border-b border-gray-200 px-4 py-3">
+      <div className="bg-[rgb(var(--color-bg-card))] border-b border-[rgb(var(--color-border))] px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-semibold text-gray-900">Family Tree</h1>
-            <span className="text-sm text-gray-500">
+            <h1 className="text-xl font-semibold text-[rgb(var(--color-text-main))]">Family Tree</h1>
+            <span className="text-sm text-[rgb(var(--color-text-muted))]">
               {people.length} {people.length === 1 ? 'person' : 'people'}
             </span>
           </div>

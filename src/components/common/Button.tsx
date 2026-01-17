@@ -29,10 +29,10 @@ const baseStyles = `
 `;
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 active:bg-primary-800',
-  secondary: 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-primary-500 active:bg-gray-100',
+  primary: 'bg-[rgb(var(--color-accent-btn))] text-white hover:bg-[rgb(var(--color-accent-btn-hover))] focus:ring-[rgb(var(--color-accent-btn))] active:bg-[rgb(var(--color-accent-btn-active))]',
+  secondary: 'bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-text-main))] border border-[rgb(var(--color-border))] hover:bg-[rgb(var(--color-bg-elevated))] focus:ring-[rgb(var(--color-accent-btn))] active:bg-[rgb(var(--color-bg-elevated))]',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 active:bg-red-800',
-  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-primary-500',
+  ghost: 'bg-transparent text-[rgb(var(--color-text-muted))] hover:bg-[rgb(var(--color-bg-elevated))] hover:text-[rgb(var(--color-text-main))] focus:ring-[rgb(var(--color-accent-btn))]',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

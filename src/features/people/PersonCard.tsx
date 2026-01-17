@@ -53,24 +53,24 @@ export function PersonCard({ person, showLink = true, compact = false }: PersonC
         />
         
         <div className="flex-1 min-w-0">
-          <h3 className={`font-semibold text-gray-900 truncate ${compact ? 'text-base' : 'text-xl'}`}>
+          <h3 className={`font-semibold text-[rgb(var(--color-text-main))] truncate ${compact ? 'text-base' : 'text-xl'}`}>
             {displayName}
           </h3>
           
           {person.maiden_name && (
-            <p className="text-sm text-gray-500">née {person.maiden_name}</p>
+            <p className="text-sm text-[rgb(var(--color-text-muted))]">née {person.maiden_name}</p>
           )}
           
-          <div className={`mt-2 space-y-1 text-gray-600 ${compact ? 'text-sm' : 'text-base'}`}>
+          <div className={`mt-2 space-y-1 text-[rgb(var(--color-text-muted))] ${compact ? 'text-sm' : 'text-base'}`}>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <Calendar className="w-4 h-4 text-[rgb(var(--color-text-muted))] flex-shrink-0" />
               <span>
                 {formatDate(person.birthday)}
                 {' • '}
                 {person.is_living ? (
                   <span>{age} years old</span>
                 ) : (
-                  <span className="text-gray-500">
+                  <span className="text-[rgb(var(--color-text-muted))]">
                     Passed away {person.death_date ? formatDate(person.death_date) : ''} 
                     (age {age})
                   </span>
@@ -80,26 +80,26 @@ export function PersonCard({ person, showLink = true, compact = false }: PersonC
             
             {person.birth_place && (
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[rgb(var(--color-text-muted))] flex-shrink-0" />
                 <span className="truncate">{person.birth_place}</span>
               </div>
             )}
             
             {person.occupation && (
               <div className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <Briefcase className="w-4 h-4 text-[rgb(var(--color-text-muted))] flex-shrink-0" />
                 <span className="truncate">{person.occupation}</span>
               </div>
             )}
           </div>
           
           {!compact && person.bio && (
-            <p className="mt-3 text-gray-600 line-clamp-2">{person.bio}</p>
+            <p className="mt-3 text-[rgb(var(--color-text-muted))] line-clamp-2">{person.bio}</p>
           )}
           
           {!person.is_living && (
             <div className="mt-2">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[rgb(var(--color-bg-elevated))] text-[rgb(var(--color-text-muted))]">
                 <Heart className="w-3 h-3" />
                 In Memoriam
               </span>
@@ -135,11 +135,11 @@ export function PersonMiniCard({ person, subtitle, onClick }: PersonMiniCardProp
   const fullName = `${person.first_name} ${person.last_name}`;
 
   const content = (
-    <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+    <div className="flex items-center gap-3 p-3 rounded-lg border border-[rgb(var(--color-border))] hover:bg-[rgb(var(--color-bg-elevated))] transition-colors">
       <Avatar src={person.photo_url} name={fullName} size="md" />
       <div className="min-w-0 flex-1">
-        <p className="font-medium text-gray-900 truncate">{fullName}</p>
-        {subtitle && <p className="text-sm text-gray-500 truncate">{subtitle}</p>}
+        <p className="font-medium text-[rgb(var(--color-text-main))] truncate">{fullName}</p>
+        {subtitle && <p className="text-sm text-[rgb(var(--color-text-muted))] truncate">{subtitle}</p>}
       </div>
     </div>
   );

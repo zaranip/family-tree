@@ -19,7 +19,7 @@ const paddingClasses = {
 
 export function Card({ children, className = '', padding = 'md' }: CardProps) {
   return (
-    <div className={`bg-white rounded-xl shadow-sm border border-gray-200 ${paddingClasses[padding]} ${className}`}>
+    <div className={`bg-[rgb(var(--color-bg-card))] rounded-xl shadow-sm border border-[rgb(var(--color-border))] ${paddingClasses[padding]} ${className}`}>
       {children}
     </div>
   );
@@ -37,11 +37,11 @@ interface CardWithHeaderProps extends CardProps {
 
 export function CardWithHeader({ title, subtitle, action, children, className = '' }: CardWithHeaderProps) {
   return (
-    <div className={`bg-white rounded-xl shadow-sm border border-gray-200 ${className}`}>
-      <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+    <div className={`bg-[rgb(var(--color-bg-card))] rounded-xl shadow-sm border border-[rgb(var(--color-border))] ${className}`}>
+      <div className="px-6 py-4 border-b border-[rgb(var(--color-border))] flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-          {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
+          <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))]">{title}</h3>
+          {subtitle && <p className="text-sm text-[rgb(var(--color-text-muted))] mt-1">{subtitle}</p>}
         </div>
         {action && <div>{action}</div>}
       </div>
@@ -70,8 +70,8 @@ export function StatCard({ title, value, icon, trend, className = '' }: StatCard
     <Card className={className}>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-500">{title}</p>
-          <p className="mt-2 text-3xl font-bold text-gray-900">{value}</p>
+          <p className="text-sm font-medium text-[rgb(var(--color-text-muted))]">{title}</p>
+          <p className="mt-2 text-3xl font-bold text-[rgb(var(--color-text-main))]">{value}</p>
           {trend && (
             <p className={`mt-2 text-sm ${trend.isPositive ? 'text-green-600' : 'text-red-600'}`}>
               {trend.isPositive ? '+' : '-'}{Math.abs(trend.value)}%
@@ -104,13 +104,13 @@ export function EmptyState({ icon, title, description, action, className = '' }:
   return (
     <Card className={`text-center py-12 ${className}`}>
       {icon && (
-        <div className="mx-auto w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full text-gray-400 mb-4">
+        <div className="mx-auto w-16 h-16 flex items-center justify-center bg-[rgb(var(--color-bg-elevated))] rounded-full text-[rgb(var(--color-text-muted))] mb-4">
           {icon}
         </div>
       )}
-      <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+      <h3 className="text-lg font-medium text-[rgb(var(--color-text-main))]">{title}</h3>
       {description && (
-        <p className="mt-2 text-gray-500 max-w-md mx-auto">{description}</p>
+        <p className="mt-2 text-[rgb(var(--color-text-muted))] max-w-md mx-auto">{description}</p>
       )}
       {action && <div className="mt-6">{action}</div>}
     </Card>

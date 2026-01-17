@@ -98,10 +98,10 @@ export function Search() {
         />
 
         {/* Search Bar */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+        <div className="bg-[rgb(var(--color-bg-card))] rounded-xl shadow-sm border border-[rgb(var(--color-border))] p-6 mb-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
-              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[rgb(var(--color-text-muted))]" />
               <Input
                 placeholder="Search by name, location, occupation..."
                 value={searchQuery}
@@ -125,7 +125,7 @@ export function Search() {
 
           {/* Filter Panel */}
           {showFilters && (
-            <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="mt-6 pt-6 border-t border-[rgb(var(--color-border))]">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Select
                   label="Sort By"
@@ -135,7 +135,7 @@ export function Search() {
                 />
                 
                 <div className="space-y-4">
-                  <label className="block text-base font-medium text-gray-700">
+                  <label className="block text-base font-medium text-[rgb(var(--color-text-main))]">
                     Status
                   </label>
                   <div className="space-y-2">
@@ -193,7 +193,7 @@ export function Search() {
         {!isLoading && !error && (
           <>
             {/* Results count */}
-            <p className="text-gray-600 mb-6">
+            <p className="text-[rgb(var(--color-text-muted))] mb-6">
               {filteredPeople.length === 0
                 ? 'No results found'
                 : `Found ${filteredPeople.length} ${filteredPeople.length === 1 ? 'person' : 'people'}`}

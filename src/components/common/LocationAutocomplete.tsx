@@ -312,7 +312,7 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-base font-medium text-gray-700 mb-2"
+            className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2"
           >
             {label}
             {required && <span className="text-red-500 ml-1">*</span>}
@@ -320,7 +320,7 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
         )}
 
         <div className="relative">
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[rgb(var(--color-text-muted))]">
             <MapPin className="w-5 h-5" />
           </div>
 
@@ -346,10 +346,11 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
             className={`
               w-full pl-12 pr-10 py-3 text-base border rounded-lg
               transition-colors duration-200
+              bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-text-main))]
               focus:ring-2 focus:ring-primary-500 focus:border-primary-500
-              placeholder:text-gray-400
-              disabled:bg-gray-100 disabled:cursor-not-allowed
-              ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300'}
+              placeholder:text-[rgb(var(--color-text-muted))]
+              disabled:opacity-50 disabled:cursor-not-allowed
+              ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-[rgb(var(--color-input-border))]'}
             `}
             autoComplete="off"
             aria-expanded={isOpen}
@@ -361,7 +362,7 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
             <button
               type="button"
               onClick={handleClear}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-[rgb(var(--color-text-muted))] hover:text-[rgb(var(--color-text-main))]"
               aria-label="Clear location"
             >
               <X className="w-5 h-5" />
@@ -371,7 +372,7 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
           {/* Suggestions Dropdown */}
           {isOpen && suggestions.length > 0 && (
             <ul
-              className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-auto"
+              className="absolute z-10 w-full mt-1 bg-[rgb(var(--color-bg-card))] border border-[rgb(var(--color-border))] rounded-lg shadow-lg max-h-60 overflow-auto"
               role="listbox"
             >
               {suggestions.map((suggestion, index) => (
@@ -382,10 +383,10 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
                   onClick={() => handleSelectSuggestion(suggestion)}
                   className={`
                     flex items-center gap-3 px-4 py-3 cursor-pointer
-                    ${index === highlightedIndex ? 'bg-primary-50 text-primary-700' : 'hover:bg-gray-50'}
+                    ${index === highlightedIndex ? 'bg-primary-50 text-primary-700' : 'hover:bg-[rgb(var(--color-bg-elevated))]'}
                   `}
                 >
-                  <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-[rgb(var(--color-text-muted))] flex-shrink-0" />
                   <span>{suggestion}</span>
                 </li>
               ))}
@@ -397,7 +398,7 @@ export const LocationAutocomplete = forwardRef<HTMLInputElement, LocationAutocom
           <p className="mt-2 text-sm text-red-600">{error}</p>
         )}
         {hint && !error && (
-          <p className="mt-2 text-sm text-gray-500">{hint}</p>
+          <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">{hint}</p>
         )}
       </div>
     );

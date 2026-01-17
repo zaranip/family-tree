@@ -80,12 +80,12 @@ export function Login() {
         />
 
         <div className="flex items-center justify-between">
-          <label className="flex items-center">
+          <label className="flex items-center cursor-pointer">
             <input
               type="checkbox"
-              className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+              className="w-4 h-4 rounded border-[rgb(var(--color-input-border))] bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-accent-btn))] focus:ring-2 focus:ring-[rgb(var(--color-accent-btn))] checked:bg-[rgb(var(--color-accent-btn))] checked:border-[rgb(var(--color-accent-btn))]"
             />
-            <span className="ml-2 text-sm text-gray-600">Remember me</span>
+            <span className="ml-2 text-sm text-[rgb(var(--color-text-muted))]">Remember me</span>
           </label>
           <Link to="/auth/forgot-password" className="link text-sm">
             Forgot password?

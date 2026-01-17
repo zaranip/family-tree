@@ -296,25 +296,25 @@ export function FamilyTree({
         defaultViewport={{ x: 0, y: 0, zoom: 0.8 }}
         proOptions={{ hideAttribution: true }}
       >
-        <Background color="#e5e7eb" gap={20} />
+        <Background color="#6b7280" gap={20} size={1} />
         <Controls 
           showInteractive={false}
-          className="!shadow-lg !rounded-lg !border !border-gray-200"
+          className="!shadow-lg !rounded-lg !border !border-[rgb(var(--color-border))] !bg-[rgb(var(--color-bg-card))]"
         />
         <MiniMap
           nodeColor={(node) => {
             const person = (node.data as { person: Person }).person;
             return person.is_living ? '#3b82f6' : '#9ca3af';
           }}
-          maskColor="rgba(255, 255, 255, 0.8)"
-          className="!shadow-lg !rounded-lg !border !border-gray-200"
+          maskColor="rgba(0, 0, 0, 0.1)"
+          className="!shadow-lg !rounded-lg !border !border-[rgb(var(--color-border))]"
         />
 
         {/* Legend */}
         <Panel position="bottom-left" className="!m-4">
-          <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-4">
-            <h4 className="font-semibold text-gray-900 mb-3 text-sm">Legend</h4>
-            <div className="space-y-2 text-xs">
+          <div className="bg-[rgb(var(--color-bg-card))] rounded-lg shadow-lg border border-[rgb(var(--color-border))] p-4">
+            <h4 className="font-semibold text-[rgb(var(--color-text-main))] mb-3 text-sm">Legend</h4>
+            <div className="space-y-2 text-xs text-[rgb(var(--color-text-muted))]">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-0.5 bg-gray-500" />
                 <span>Parent-Child</span>

@@ -7,3 +7,4 @@ export { ToastProvider, useToast } from './Toast';
 export { Avatar, AvatarGroup } from './Avatar';
 export { ImageUpload } from './ImageUpload';
 export { LocationAutocomplete } from './LocationAutocomplete';
+export { ThemeSelector } from './ThemeSelector';

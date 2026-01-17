@@ -11,6 +11,7 @@ import { Login, Register, ForgotPassword, ResetPassword, VerifyEmail, AuthCallba
 import { Home } from './pages/Home';
 import { Search } from './pages/Search';
 import { Admin } from './pages/Admin';
+import { Settings } from './pages/Settings';
 
 // People Pages
 import { PeopleList, AddPerson, PersonProfile, EditPerson } from './pages/People';
@@ -136,7 +137,7 @@ function App() {
                 path="/settings"
                 element={
                   <ProtectedRoute>
-                    <Navigate to="/" replace />
+                    <Settings />
                   </ProtectedRoute>
                 }
               />

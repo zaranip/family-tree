@@ -28,9 +28,9 @@ interface LoadingOverlayProps {
 
 export function LoadingOverlay({ message = 'Loading...' }: LoadingOverlayProps) {
   return (
-    <div className="fixed inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[rgb(var(--color-bg-main))]/80 backdrop-blur-sm flex flex-col items-center justify-center z-50">
       <LoadingSpinner size="xl" />
-      <p className="mt-4 text-lg text-gray-600">{message}</p>
+      <p className="mt-4 text-lg text-[rgb(var(--color-text-muted))]">{message}</p>
     </div>
   );
 }
@@ -43,7 +43,7 @@ export function LoadingCard({ message = 'Loading...' }: LoadingCardProps) {
   return (
     <div className="card flex flex-col items-center justify-center py-12">
       <LoadingSpinner size="lg" />
-      <p className="mt-4 text-gray-600">{message}</p>
+      <p className="mt-4 text-[rgb(var(--color-text-muted))]">{message}</p>
     </div>
   );
 }

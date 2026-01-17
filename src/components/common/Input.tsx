@@ -8,13 +8,14 @@ import { AlertCircle } from 'lucide-react';
 const baseInputStyles = `
   w-full px-4 py-3 text-base border rounded-lg
   transition-colors duration-200
+  bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-text-main))]
   focus:ring-2 focus:ring-primary-500 focus:border-primary-500
-  placeholder:text-gray-400
-  disabled:bg-gray-100 disabled:cursor-not-allowed
+  placeholder:text-[rgb(var(--color-text-muted))]
+  disabled:opacity-50 disabled:cursor-not-allowed
 `;
 
 const errorStyles = 'border-red-500 focus:ring-red-500 focus:border-red-500';
-const normalStyles = 'border-gray-300';
+const normalStyles = 'border-[rgb(var(--color-input-border))]';
 
 // =============================================================================
 // TEXT INPUT
@@ -33,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="block text-base font-medium text-gray-700 mb-2">
+          <label htmlFor={inputId} className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2">
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -57,7 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-2 text-sm text-gray-500">
+          <p id={`${inputId}-hint`} className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
             {hint}
           </p>
         )}
@@ -85,7 +86,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="block text-base font-medium text-gray-700 mb-2">
+          <label htmlFor={inputId} className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2">
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -110,7 +111,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-2 text-sm text-gray-500">
+          <p id={`${inputId}-hint`} className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
             {hint}
           </p>
         )}
@@ -146,7 +147,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={inputId} className="block text-base font-medium text-gray-700 mb-2">
+          <label htmlFor={inputId} className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2">
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -181,7 +182,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {hint && !error && (
-          <p id={`${inputId}-hint`} className="mt-2 text-sm text-gray-500">
+          <p id={`${inputId}-hint`} className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
             {hint}
           </p>
         )}
@@ -213,8 +214,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
             id={inputId}
             className={`
-              w-5 h-5 rounded border-gray-300 text-primary-600
-              focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+              w-5 h-5 rounded border-[rgb(var(--color-input-border))] 
+              bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-accent-btn))]
+              focus:ring-2 focus:ring-[rgb(var(--color-accent-btn))] focus:ring-offset-2 focus:ring-offset-[rgb(var(--color-bg-card))]
+              checked:bg-[rgb(var(--color-accent-btn))] checked:border-[rgb(var(--color-accent-btn))]
               disabled:opacity-50 disabled:cursor-not-allowed
               ${error ? 'border-red-500' : ''}
               ${className}
@@ -223,7 +226,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             aria-describedby={error ? `${inputId}-error` : undefined}
             {...props}
           />
-          <span className="ml-3 text-base text-gray-700">{label}</span>
+          <span className="ml-3 text-base text-[rgb(var(--color-text-main))]">{label}</span>
         </label>
         {error && (
           <p id={`${inputId}-error`} className="mt-2 flex items-center text-sm text-red-600">

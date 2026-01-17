@@ -68,7 +68,7 @@ export function ImageUpload({
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-base font-medium text-gray-700 mb-2">
+        <label className="block text-base font-medium text-[rgb(var(--color-text-main))] mb-2">
           {label}
         </label>
       )}
@@ -78,9 +78,9 @@ export function ImageUpload({
         <div className="relative flex-shrink-0">
           <div
             className={`
-              w-32 h-32 rounded-xl overflow-hidden bg-gray-100 
+              w-32 h-32 rounded-xl overflow-hidden bg-[rgb(var(--color-bg-elevated))] 
               flex items-center justify-center border-2 border-dashed
-              ${error ? 'border-red-300' : 'border-gray-300'}
+              ${error ? 'border-red-300' : 'border-[rgb(var(--color-border))]'}
             `}
           >
             {isUploading ? (
@@ -92,7 +92,7 @@ export function ImageUpload({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <User className="w-12 h-12 text-gray-400" />
+              <User className="w-12 h-12 text-[rgb(var(--color-text-muted))]" />
             )}
           </div>
 
@@ -130,7 +130,7 @@ export function ImageUpload({
             {displayUrl ? 'Change Photo' : 'Upload Photo'}
           </Button>
 
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
             {hint || 'JPG, PNG or GIF. Max 5MB.'}
           </p>
 

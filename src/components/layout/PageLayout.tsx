@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { ThemeSelector } from '../common/ThemeSelector';
 import { Header } from './Header';
 
 // =============================================================================
@@ -11,9 +12,9 @@ interface PageLayoutProps {
 
 export function PageLayout({ children }: PageLayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[rgb(var(--color-bg-page))] flex flex-col">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 text-[rgb(var(--color-text-main))]">
         {children}
       </main>
     </div>
@@ -63,16 +64,16 @@ export function PageHeader({ title, subtitle, action, breadcrumbs }: PageHeaderP
     <div className="mb-8">
       {breadcrumbs && breadcrumbs.length > 0 && (
         <nav className="mb-4" aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-[rgb(var(--color-text-muted))]">
             {breadcrumbs.map((crumb, index) => (
               <li key={index} className="flex items-center">
                 {index > 0 && <span className="mx-2">/</span>}
                 {crumb.to ? (
-                  <a href={crumb.to} className="hover:text-gray-700 hover:underline">
+                  <a href={crumb.to} className="hover:text-[rgb(var(--color-text-main))] hover:underline">
                     {crumb.label}
                   </a>
                 ) : (
-                  <span className="text-gray-900 font-medium">{crumb.label}</span>
+                  <span className="text-[rgb(var(--color-text-main))] font-medium">{crumb.label}</span>
                 )}
               </li>
             ))}
@@ -81,8 +82,8 @@ export function PageHeader({ title, subtitle, action, breadcrumbs }: PageHeaderP
       )}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
-          {subtitle && <p className="mt-2 text-lg text-gray-600">{subtitle}</p>}
+          <h1 className="text-3xl font-bold text-[rgb(var(--color-text-main))]">{title}</h1>
+          {subtitle && <p className="mt-2 text-lg text-[rgb(var(--color-text-muted))]">{subtitle}</p>}
         </div>
         {action && <div className="flex-shrink-0">{action}</div>}
       </div>
@@ -102,7 +103,7 @@ interface AuthLayoutProps {
 
 export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[linear-gradient(135deg,rgb(var(--color-auth-start)),rgb(var(--color-auth-end)))] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center">
@@ -111,18 +112,21 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
             </svg>
           </div>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-bold text-[rgb(var(--color-text-main))]">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-2 text-center text-base text-gray-600">
+          <p className="mt-2 text-center text-base text-[rgb(var(--color-text-muted))]">
             {subtitle}
           </p>
         )}
+        <div className="mt-4 flex justify-center">
+          <ThemeSelector />
+        </div>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-6 shadow-lg rounded-xl sm:px-10">
+        <div className="bg-[rgb(var(--color-bg-card))] py-8 px-6 shadow-lg rounded-xl sm:px-10 border border-[rgb(var(--color-border))]">
           {children}
         </div>
       </div>
@@ -140,7 +144,7 @@ interface FullPageLayoutProps {
 
 export function FullPageLayout({ children }: FullPageLayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[rgb(var(--color-bg-page))]">
       {children}
     </div>
   );

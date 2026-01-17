@@ -96,10 +96,10 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
     >
       {/* Required Information Section */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))] mb-4">
           Basic Information <span className="text-red-500">*</span>
         </h3>
-        <p className="text-gray-500 mb-6">These fields are required.</p>
+        <p className="text-[rgb(var(--color-text-muted))] mb-6">These fields are required.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
@@ -128,10 +128,10 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
 
       {/* Optional Personal Details */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))] mb-4">
           Additional Details
         </h3>
-        <p className="text-gray-500 mb-6">These fields are optional.</p>
+        <p className="text-[rgb(var(--color-text-muted))] mb-6">These fields are optional.</p>
         
         <div className="mb-6">
           <ImageUpload
@@ -200,7 +200,7 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
 
       {/* Living Status */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))] mb-4">
           Status
         </h3>
         
@@ -211,7 +211,7 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
           />
           
           {!isLiving && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 border-l-2 border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 border-l-2 border-[rgb(var(--color-border))]">
               <Input
                 label="Date of Death"
                 type="date"
@@ -231,10 +231,10 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
 
       {/* Contact Information */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))] mb-4">
           Contact Information
         </h3>
-        <p className="text-gray-500 mb-6">Optional contact details.</p>
+        <p className="text-[rgb(var(--color-text-muted))] mb-6">Optional contact details.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
@@ -256,7 +256,7 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
 
       {/* Biography */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))] mb-4">
           Biography
         </h3>
         <Textarea
@@ -269,7 +269,7 @@ export function PersonForm({ person, onSubmit, onCancel, isLoading = false }: Pe
       </div>
 
       {/* Form Actions */}
-      <div className="flex flex-col-reverse sm:flex-row gap-3 pt-6 border-t border-gray-200">
+      <div className="flex flex-col-reverse sm:flex-row gap-3 pt-6 border-t border-[rgb(var(--color-border))]">
         <Button
           type="button"
           variant="secondary"

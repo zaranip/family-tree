@@ -116,9 +116,9 @@ export function Admin() {
       <PageLayout>
         <PageContainer>
           <div className="text-center py-12">
-            <Shield className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900">Admin Access Required</h2>
-            <p className="text-gray-500 mt-2">You don't have permission to view this page.</p>
+            <Shield className="w-16 h-16 text-[rgb(var(--color-text-muted))] mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-[rgb(var(--color-text-main))]">Admin Access Required</h2>
+            <p className="text-[rgb(var(--color-text-muted))] mt-2">You don't have permission to view this page.</p>
           </div>
         </PageContainer>
       </PageLayout>
@@ -173,35 +173,35 @@ export function Admin() {
             onClick={() => toggleSection('users')}
             className="w-full flex items-center justify-between p-2"
           >
-            <h3 className="text-lg font-semibold text-gray-900">User Management</h3>
+            <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))]">User Management</h3>
             {expandedSection === 'users' ? (
-              <ChevronUp className="w-5 h-5 text-gray-500" />
+              <ChevronUp className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500" />
+              <ChevronDown className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             )}
           </button>
           
           {expandedSection === 'users' && (
-            <div className="mt-4 border-t border-gray-200 pt-4">
+            <div className="mt-4 border-t border-[rgb(var(--color-border))] pt-4">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="text-left text-sm text-gray-500 border-b">
+                    <tr className="text-left text-sm text-[rgb(var(--color-text-muted))] border-b border-[rgb(var(--color-border))]">
                       <th className="pb-3 font-medium">User</th>
                       <th className="pb-3 font-medium">Role</th>
                       <th className="pb-3 font-medium">Joined</th>
                       <th className="pb-3 font-medium">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100">
+                  <tbody className="divide-y divide-[rgb(var(--color-border))]">
                     {userProfiles.map((user: UserProfile) => (
                       <tr key={user.id}>
                         <td className="py-4">
                           <div className="flex items-center gap-3">
                             <Avatar name={user.email} size="sm" />
                             <div>
-                              <p className="font-medium text-gray-900">{user.display_name || 'No name'}</p>
-                              <p className="text-sm text-gray-500">{user.email}</p>
+                              <p className="font-medium text-[rgb(var(--color-text-main))]">{user.display_name || 'No name'}</p>
+                              <p className="text-sm text-[rgb(var(--color-text-muted))]">{user.email}</p>
                             </div>
                           </div>
                         </td>
@@ -209,13 +209,13 @@ export function Admin() {
                           <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full
                             ${user.role === 'admin' 
                               ? 'bg-purple-100 text-purple-800' 
-                              : 'bg-gray-100 text-gray-800'
+                              : 'bg-[rgb(var(--color-bg-elevated))] text-[rgb(var(--color-text-muted))]'
                             }`}
                           >
                             {user.role}
                           </span>
                         </td>
-                        <td className="py-4 text-sm text-gray-500">
+                        <td className="py-4 text-sm text-[rgb(var(--color-text-muted))]">
                           {format(parseISO(user.created_at), 'MMM d, yyyy')}
                         </td>
                         <td className="py-4">
@@ -246,36 +246,36 @@ export function Admin() {
             onClick={() => toggleSection('deleted')}
             className="w-full flex items-center justify-between p-2"
           >
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))]">
               Deleted Relationships ({deletedRelationships.length})
             </h3>
             {expandedSection === 'deleted' ? (
-              <ChevronUp className="w-5 h-5 text-gray-500" />
+              <ChevronUp className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500" />
+              <ChevronDown className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             )}
           </button>
           
           {expandedSection === 'deleted' && (
-            <div className="mt-4 border-t border-gray-200 pt-4">
+            <div className="mt-4 border-t border-[rgb(var(--color-border))] pt-4">
               {deletedRelationships.length === 0 ? (
-                <p className="text-gray-500 text-center py-4">No deleted relationships</p>
+                <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No deleted relationships</p>
               ) : (
                 <div className="space-y-3">
                   {deletedRelationships.map((rel: Relationship & { person1: Person; person2: Person }) => (
                     <div
                       key={rel.id}
-                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                      className="flex items-center justify-between p-4 bg-[rgb(var(--color-bg-elevated))] rounded-lg"
                     >
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-[rgb(var(--color-text-main))]">
                           {rel.person1?.first_name} {rel.person1?.last_name}
                           {' '}
-                          <span className="text-gray-500">→</span>
+                          <span className="text-[rgb(var(--color-text-muted))]">→</span>
                           {' '}
                           {rel.person2?.first_name} {rel.person2?.last_name}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-[rgb(var(--color-text-muted))]">
                           {RELATIONSHIP_LABELS[rel.relationship_type]}
                           {' • '}
                           Deleted {rel.deleted_at && format(parseISO(rel.deleted_at), 'MMM d, yyyy')}
@@ -303,33 +303,33 @@ export function Admin() {
             onClick={() => toggleSection('activity')}
             className="w-full flex items-center justify-between p-2"
           >
-            <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
+            <h3 className="text-lg font-semibold text-[rgb(var(--color-text-main))]">Recent Activity</h3>
             {expandedSection === 'activity' ? (
-              <ChevronUp className="w-5 h-5 text-gray-500" />
+              <ChevronUp className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500" />
+              <ChevronDown className="w-5 h-5 text-[rgb(var(--color-text-muted))]" />
             )}
           </button>
           
           {expandedSection === 'activity' && (
-            <div className="mt-4 border-t border-gray-200 pt-4">
+            <div className="mt-4 border-t border-[rgb(var(--color-border))] pt-4">
               {auditLog.length === 0 ? (
-                <p className="text-gray-500 text-center py-4">No recent activity</p>
+                <p className="text-[rgb(var(--color-text-muted))] text-center py-4">No recent activity</p>
               ) : (
                 <div className="space-y-3 max-h-96 overflow-y-auto">
                   {auditLog.map((entry: AuditLogEntry) => (
                     <div
                       key={entry.id}
-                      className="flex items-start gap-4 p-3 bg-gray-50 rounded-lg"
+                      className="flex items-start gap-4 p-3 bg-[rgb(var(--color-bg-elevated))] rounded-lg"
                     >
-                      <div className="p-2 bg-white rounded-full">
-                        <Activity className="w-4 h-4 text-gray-500" />
+                      <div className="p-2 bg-[rgb(var(--color-bg-card))] rounded-full">
+                        <Activity className="w-4 h-4 text-[rgb(var(--color-text-muted))]" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm text-gray-900">
+                        <p className="text-sm text-[rgb(var(--color-text-main))]">
                           {entry.description || entry.action.replace(/_/g, ' ')}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-[rgb(var(--color-text-muted))]">
                           {format(parseISO(entry.created_at), 'MMM d, yyyy h:mm a')}
                         </p>
                       </div>

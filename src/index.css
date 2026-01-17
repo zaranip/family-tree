@@ -7,15 +7,141 @@
   html {
     @apply scroll-smooth;
   }
-  
+
+  :root {
+    --color-primary-50: 239 246 255;
+    --color-primary-100: 219 234 254;
+    --color-primary-200: 191 219 254;
+    --color-primary-300: 147 197 253;
+    --color-primary-400: 96 165 250;
+    --color-primary-500: 59 130 246;
+    --color-primary-600: 37 99 235;
+    --color-primary-700: 29 78 216;
+    --color-primary-800: 30 64 175;
+    --color-primary-900: 30 58 138;
+    --color-primary-950: 23 37 84;
+
+    --color-secondary-50: 248 250 252;
+    --color-secondary-100: 241 245 249;
+    --color-secondary-200: 226 232 240;
+    --color-secondary-300: 203 213 225;
+    --color-secondary-400: 148 163 184;
+    --color-secondary-500: 100 116 139;
+    --color-secondary-600: 71 85 105;
+    --color-secondary-700: 51 65 85;
+    --color-secondary-800: 30 41 59;
+    --color-secondary-900: 15 23 42;
+    --color-secondary-950: 2 6 23;
+
+    --color-bg-page: 249 250 251;
+    --color-bg-card: 255 255 255;
+    --color-bg-elevated: 241 245 249;
+    --color-text-main: 17 24 39;
+    --color-text-muted: 75 85 99;
+    --color-border: 229 231 235;
+    --color-input-border: 209 213 219;
+    --color-ring: 59 130 246;
+    --color-auth-start: 239 246 255;
+    --color-auth-end: 219 234 254;
+    
+    /* Fixed accent colors for buttons - don't invert in dark mode */
+    --color-accent-btn: 37 99 235;
+    --color-accent-btn-hover: 29 78 216;
+    --color-accent-btn-active: 30 64 175;
+  }
+
+  [data-theme='dark'] {
+    --color-primary-50: 30 58 138;
+    --color-primary-100: 30 64 175;
+    --color-primary-200: 37 99 235;
+    --color-primary-300: 59 130 246;
+    --color-primary-400: 96 165 250;
+    --color-primary-500: 147 197 253;
+    --color-primary-600: 191 219 254;
+    --color-primary-700: 219 234 254;
+    --color-primary-800: 239 246 255;
+    --color-primary-900: 248 250 252;
+    --color-primary-950: 255 255 255;
+
+    --color-secondary-50: 15 23 42;
+    --color-secondary-100: 30 41 59;
+    --color-secondary-200: 51 65 85;
+    --color-secondary-300: 71 85 105;
+    --color-secondary-400: 100 116 139;
+    --color-secondary-500: 148 163 184;
+    --color-secondary-600: 203 213 225;
+    --color-secondary-700: 226 232 240;
+    --color-secondary-800: 241 245 249;
+    --color-secondary-900: 248 250 252;
+    --color-secondary-950: 255 255 255;
+
+    --color-bg-page: 2 6 23;
+    --color-bg-card: 15 23 42;
+    --color-bg-elevated: 30 41 59;
+    --color-text-main: 248 250 252;
+    --color-text-muted: 148 163 184;
+    --color-border: 30 41 59;
+    --color-input-border: 51 65 85;
+    --color-ring: 147 197 253;
+    --color-auth-start: 15 23 42;
+    --color-auth-end: 30 41 59;
+    
+    /* Fixed accent colors for buttons - keep vibrant in dark mode */
+    --color-accent-btn: 59 130 246;
+    --color-accent-btn-hover: 96 165 250;
+    --color-accent-btn-active: 37 99 235;
+  }
+
+  [data-theme='colored'] {
+    --color-primary-50: 255 247 237;
+    --color-primary-100: 255 237 213;
+    --color-primary-200: 254 215 170;
+    --color-primary-300: 253 186 116;
+    --color-primary-400: 251 146 60;
+    --color-primary-500: 249 115 22;
+    --color-primary-600: 234 88 12;
+    --color-primary-700: 194 65 12;
+    --color-primary-800: 154 52 18;
+    --color-primary-900: 124 45 18;
+    --color-primary-950: 67 20 7;
+
+    --color-secondary-50: 240 253 250;
+    --color-secondary-100: 204 251 241;
+    --color-secondary-200: 153 246 228;
+    --color-secondary-300: 94 234 212;
+    --color-secondary-400: 45 212 191;
+    --color-secondary-500: 20 184 166;
+    --color-secondary-600: 13 148 136;
+    --color-secondary-700: 15 118 110;
+    --color-secondary-800: 17 94 89;
+    --color-secondary-900: 19 78 74;
+    --color-secondary-950: 4 47 46;
+
+    --color-bg-page: 255 251 235;
+    --color-bg-card: 255 255 255;
+    --color-bg-elevated: 255 237 213;
+    --color-text-main: 69 26 3;
+    --color-text-muted: 120 53 15;
+    --color-border: 254 215 170;
+    --color-input-border: 251 191 36;
+    --color-ring: 249 115 22;
+    --color-auth-start: 255 247 237;
+    --color-auth-end: 204 251 241;
+    
+    /* Fixed accent colors for buttons - use orange for colored theme */
+    --color-accent-btn: 234 88 12;
+    --color-accent-btn-hover: 194 65 12;
+    --color-accent-btn-active: 154 52 18;
+  }
+
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-[rgb(var(--color-bg-page))] text-[rgb(var(--color-text-main))] antialiased;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
   /* Focus states for accessibility */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary-500;
+    @apply outline-2 outline-offset-2 outline-[rgb(var(--color-ring))];
   }
 
   /* Larger clickable areas */
@@ -32,14 +158,14 @@
 @layer components {
   /* Card component */
   .card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+    @apply bg-[rgb(var(--color-bg-card))] rounded-xl shadow-sm border border-[rgb(var(--color-border))] p-6;
   }
 
   /* Form input base */
   .input-base {
-    @apply w-full px-4 py-3 text-base border border-gray-300 rounded-lg 
+    @apply w-full px-4 py-3 text-base border border-[rgb(var(--color-input-border))] rounded-lg
            focus:ring-2 focus:ring-primary-500 focus:border-primary-500
-           placeholder:text-gray-400;
+           placeholder:text-[rgb(var(--color-text-muted))] bg-[rgb(var(--color-bg-card))];
   }
 
   /* Button variants */
@@ -56,8 +182,8 @@
   }
 
   .btn-secondary {
-    @apply btn bg-white text-gray-700 border border-gray-300 
-           hover:bg-gray-50 focus:ring-primary-500 active:bg-gray-100;
+    @apply btn bg-[rgb(var(--color-bg-card))] text-[rgb(var(--color-text-main))] border border-[rgb(var(--color-border))]
+           hover:bg-[rgb(var(--color-bg-elevated))] focus:ring-primary-500 active:bg-[rgb(var(--color-bg-elevated))];
   }
 
   .btn-danger {
@@ -66,7 +192,7 @@
   }
 
   .btn-ghost {
-    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 
+    @apply btn bg-transparent text-[rgb(var(--color-text-muted))] hover:bg-[rgb(var(--color-bg-elevated))]
            focus:ring-primary-500;
   }
 
@@ -86,7 +212,7 @@
   }
 
   .badge-secondary {
-    @apply badge bg-gray-100 text-gray-800;
+    @apply badge bg-[rgb(var(--color-bg-elevated))] text-[rgb(var(--color-text-main))];
   }
 
   .badge-success {
@@ -103,11 +229,11 @@
   }
 
   .page-title {
-    @apply text-3xl font-bold text-gray-900;
+    @apply text-3xl font-bold text-[rgb(var(--color-text-main))];
   }
 
   .page-subtitle {
-    @apply mt-2 text-lg text-gray-600;
+    @apply mt-2 text-lg text-[rgb(var(--color-text-muted))];
   }
 }
 
@@ -128,9 +254,34 @@
     }
   }
 
+  /* Theme selector */
+  .theme-toggle {
+    @apply inline-flex items-center gap-1 rounded-full border border-[rgb(var(--color-border))] bg-[rgb(var(--color-bg-card))] p-1 shadow-sm;
+  }
+
+  .theme-toggle__button {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-[rgb(var(--color-text-muted))] transition-colors;
+  }
+
+  .theme-toggle__button:hover {
+    @apply bg-[rgb(var(--color-bg-elevated))] text-[rgb(var(--color-text-main))];
+  }
+
+  .theme-toggle__button.is-active {
+    @apply bg-[rgb(var(--color-accent-btn))] text-white shadow-sm;
+  }
+
+  .theme-toggle__icon {
+    @apply h-4 w-4;
+  }
+
+  .theme-toggle__label {
+    @apply hidden sm:inline;
+  }
+
   /* Loading spinner */
   .spinner {
-    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-600;
+    @apply animate-spin rounded-full border-2 border-[rgb(var(--color-border))] border-t-primary-600;
   }
 }
 
@@ -140,7 +291,7 @@
 }
 
 .react-flow__edge-path {
-  @apply stroke-gray-400;
+  @apply stroke-[rgb(var(--color-text-muted))];
 }
 
 .react-flow__controls {
@@ -149,4 +300,15 @@
 
 .react-flow__controls-button {
   @apply min-h-touch min-w-touch;
+  background-color: rgb(var(--color-bg-card)) !important;
+  border-color: rgb(var(--color-border)) !important;
+  fill: rgb(var(--color-text-main)) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: rgb(var(--color-bg-elevated)) !important;
+}
+
+.react-flow__minimap {
+  background-color: rgb(var(--color-bg-card)) !important;
 }

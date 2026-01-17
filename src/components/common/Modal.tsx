@@ -54,7 +54,7 @@ export function Modal({
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
         <div
           className={`
-            relative w-full ${sizeClasses[size]} bg-white rounded-xl shadow-xl
+            relative w-full ${sizeClasses[size]} bg-[rgb(var(--color-bg-card))] rounded-xl shadow-xl
             animate-fade-in
           `}
           role="dialog"
@@ -64,16 +64,16 @@ export function Modal({
         >
           {/* Header */}
           {(title || showCloseButton) && (
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <div className="flex items-center justify-between p-6 border-b border-[rgb(var(--color-border))]">
               {title && (
-                <h2 id="modal-title" className="text-xl font-semibold text-gray-900">
+                <h2 id="modal-title" className="text-xl font-semibold text-[rgb(var(--color-text-main))]">
                   {title}
                 </h2>
               )}
               {showCloseButton && (
                 <button
                   onClick={onClose}
-                  className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 
+                  className="p-2 rounded-lg text-[rgb(var(--color-text-muted))] hover:text-[rgb(var(--color-text-main))] hover:bg-[rgb(var(--color-bg-elevated))] 
                            transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
                   aria-label="Close modal"
                 >
@@ -121,7 +121,7 @@ export function ConfirmModal({
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
       <div className="space-y-6">
-        <p className="text-gray-600">{message}</p>
+        <p className="text-[rgb(var(--color-text-muted))]">{message}</p>
         
         <div className="flex flex-col sm:flex-row gap-3">
           <Button
