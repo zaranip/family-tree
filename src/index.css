@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Elderly-friendly base styles */
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Focus states for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+
+  /* Larger clickable areas */
+  button, a, input, select, textarea {
+    @apply min-h-touch;
+  }
+
+  /* Better form defaults */
+  input, select, textarea {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  /* Card component */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+
+  /* Form input base */
+  .input-base {
+    @apply w-full px-4 py-3 text-base border border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           placeholder:text-gray-400;
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium 
+           rounded-lg transition-colors duration-200 min-h-touch
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 
+           focus:ring-primary-500 active:bg-primary-800;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 border border-gray-300 
+           hover:bg-gray-50 focus:ring-primary-500 active:bg-gray-100;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 
+           focus:ring-red-500 active:bg-red-800;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 
+           focus:ring-primary-500;
+  }
+
+  /* Link styles */
+  .link {
+    @apply text-primary-600 hover:text-primary-700 underline underline-offset-2
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded;
+  }
+
+  /* Badge/tag */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+
+  .badge-secondary {
+    @apply badge bg-gray-100 text-gray-800;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-gray-900;
+  }
+
+  .page-subtitle {
+    @apply mt-2 text-lg text-gray-600;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-600;
+  }
+}
+
+/* React Flow customizations */
+.react-flow__node {
+  @apply cursor-pointer;
+}
+
+.react-flow__edge-path {
+  @apply stroke-gray-400;
+}
+
+.react-flow__controls {
+  @apply shadow-lg rounded-lg overflow-hidden;
+}
+
+.react-flow__controls-button {
+  @apply min-h-touch min-w-touch;
+}
